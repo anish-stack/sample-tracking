@@ -218,6 +218,7 @@ exports.getOnlyFabricDepartmentWorkByaFabricPersonName = async (req, res) => {
 };
 exports.getOnlyQcDepartmentWorkByQcPersonName = async (req, res) => {
     try {
+
         const fabricPersonName = req.params.qc;
 
         // Constructing the query to filter documents based on WorkAssigned array
@@ -272,12 +273,13 @@ exports.getOnlyQcDepartmentWorkByQcPersonName = async (req, res) => {
 exports.updateWorkAssignedStatusById = async (req, res) => {
     try {
         const workAssignedId = req.params.id;
-
+        console.log("I am hit")
+        // console.log(workAssignedId)
         // Find the style document containing the matching WorkAssigned object
         const style = await Style.findOne({
-            'WorkAssigned._id': workAssignedId,
-            'WorkAssigned.WorkGiveBy': 'Qc-Manager'
+            'WorkAssigned._id': workAssignedId
         });
+        console.log(style)
 
         if (!style) {
             return res.status(404).json({ success: false, message: 'Style not found with the provided WorkAssigned ID and WorkGiveBy value.' });
