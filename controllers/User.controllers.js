@@ -5,10 +5,10 @@ const sendToken = require('../utils/sendToken');
 // New User Register
 exports.newRegister = async (req, res) => {
     try {
-        const { userName, email, phoneNumber, password, department } = req.body;
+        const { userName, email, password, department } = req.body;
 
         // Validate inputs
-        if (!userName || !email || !phoneNumber || !password || !department) {
+        if (!userName || !email  || !password || !department) {
             return res.status(400).json({ success: false, message: 'Please provide all required fields.' });
         }
 
@@ -20,7 +20,7 @@ exports.newRegister = async (req, res) => {
 
         // Create new user
         const newUser = new User({
-            userName, email, phoneNumber, password, department
+            userName, email, password, department
         })
 
         await newUser.save();
