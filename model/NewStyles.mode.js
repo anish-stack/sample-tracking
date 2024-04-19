@@ -59,6 +59,10 @@ const WorkAssignToDepartemntSchema = mongoose.Schema({
     WorkGiveBy:{
         type: String,
         required: true
+    },
+    WorkAssignDate:{
+        type: Date,
+        default: Date.now
     }
 });
 
