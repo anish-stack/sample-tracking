@@ -339,7 +339,7 @@ exports.getAllStyles = async (req, res) => {
 exports.reMarkByDepartment = async (req, res) => {
     try {
         const { styleId } = req.params;
-
+console.log(req.body)
         // Check if the style exists
         const style = await Style.findById(styleId);
         if (!style) {
@@ -360,13 +360,14 @@ exports.reMarkByDepartment = async (req, res) => {
         const userDepartment = user.department;
 
         // Extract remark from the request body
-        const { remark } = req.body;
-
+        const { status } = req.body;
+        
         // Add remark to the style
         style.remark.push({
             WhichDepartment: userDepartment,
             NameOfPerson: user.userName,
-            remark: remark
+            remark: status.Reviews,
+            styleId:styleId
         });
 
         // Save the updated style

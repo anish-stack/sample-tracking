@@ -12,7 +12,14 @@ const remark = mongoose.Schema({
     remark:{
         type:String
     }
+    ,
+    comment:{
+        type:String
+    },
+    styleId:{
+        type:String
 
+    }
 },{timestamps:true})
 const StautsSchemna = mongoose.Schema({
 
@@ -115,7 +122,7 @@ const StyleSchema = mongoose.Schema({
         enum: [
             "Primark",
             "George",
-            "Nutmag",
+            "Nutmeg",
             "Next",
             "Pourmoi",
             "Lipsy",
