@@ -119,18 +119,7 @@ const StyleSchema = mongoose.Schema({
     },
     buyers: {
         type: String,
-        enum: [
-            "Primark",
-            "George",
-            "Nutmeg",
-            "Next",
-            "Pourmoi",
-            "Lipsy",
-            "Mango",
-            "Asos",
-            "Noon",
-            "Brownie"
-        ],
+       
         default:"Primark"
     },
     remark:[remark],
